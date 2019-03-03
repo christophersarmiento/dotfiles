@@ -59,6 +59,10 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# dotfile management
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config config status.showUntrackedFiles no
+
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
