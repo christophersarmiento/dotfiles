@@ -48,6 +48,9 @@ autoload -U promptinit; promptinit
 prompt pure
 autoload -U compinit && compinit
 
+# bat syntax theme
+export BAT_THEME="OneHalfDark"
+
 # colorls
 alias ls='colorls --sd'
 alias lsa='colorls -a'
