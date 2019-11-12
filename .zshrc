@@ -1,7 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/chris/.oh-my-zsh
 
-ZSH_THEME=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Default username to hide"user@hostname" info
 DEFAULT_USER=""
@@ -18,6 +25,7 @@ plugins=(
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-nvm
 )
 
 #ZSH_TMUX_AUTOSTART='true'
@@ -39,14 +47,8 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # random stuff you can probably delete
-export PATH=$PATH:$HOME/miniconda3/bin
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
-
-# pure prompt
-autoload -U promptinit; promptinit
-prompt pure
-autoload -U compinit && compinit
 
 # bat syntax theme
 export BAT_THEME="OneHalfDark"
@@ -54,8 +56,9 @@ export BAT_THEME="OneHalfDark"
 # colorls
 alias ls='colorls --sd'
 alias lsa='colorls -a'
-bindkey -v
-export PATH="/usr/local/sbin:$PATH"
+alias lsl='colorls -l'
+#bindkey -v
+#export PATH="/usr/local/sbin:$PATH"
 
 # alias nvim to vim
 if type nvim > /dev/null 2>&1; then
@@ -66,6 +69,7 @@ fi
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config config status.showUntrackedFiles no
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

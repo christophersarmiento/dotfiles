@@ -16,7 +16,7 @@ git clone https://github.com/christophersarmiento/dotfiles.git && cd dotfiles
 
 - [iTerm 2](https://www.iterm2.com/)
 - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
-- [Pure Prompt](https://github.com/sindresorhus/pure)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
 - [One Half](https://github.com/sonph/onehalf)
 - [darwintiler](https://github.com/veryjos/darwintiler)
 - [Color LS](https://github.com/athityakumar/colorls)
