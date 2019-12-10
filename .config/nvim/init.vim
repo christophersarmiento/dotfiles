@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'terryma/vim-multiple-cursors'
@@ -16,8 +17,8 @@ call plug#end()
 filetype plugin indent on
 syntax on
 set t_Co=256
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+let ayucolor='mirage'
+colorscheme ayu
 set cursorline
 
 set number
