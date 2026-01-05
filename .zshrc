@@ -76,6 +76,11 @@ alias convert="python /Users/christopher/code/convert.py /Users/christopher/Musi
 export HOMEBREW_NO_ENV_HINTS=TRUE
 
 # Starship Prompt
+if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+ export STARSHIP_CONFIG=~/.config/starship-dark.toml
+else
+ export STARSHIP_CONFIG=~/.config/starship-light.toml
+fi
 eval "$(starship init zsh)"
 
 # Fuzzy Finder
