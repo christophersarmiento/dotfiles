@@ -18,10 +18,20 @@ vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>q', ':q<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
-
-
 vim.pack.add({
   {src = "https://github.com/catppuccin/nvim"},
   {src = 'https://github.com/neovim/nvim-lspconfig'},
 })
-vim.cmd('colorscheme catppuccin-latte')
+
+local function get_system_appearance()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local result = handle:read("*a")
+  handle:close()
+  return result:match("Dark") and "dark" or "light"
+end
+
+if get_system_appearance() == "dark" then
+  vim.cmd('colorscheme catppuccin-mocha')
+else
+  vim.cmd('colorscheme catppuccin-latte')
+end

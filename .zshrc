@@ -70,7 +70,7 @@ alias vim="nvim"
 alias cd="z"
 alias ls="eza --icons=always -G"
 alias lsl="eza --icons=always -h -l --git --git-repos"
-alias convert="python /Users/christopher/code/convert.py /Users/christopher/Music/Downloads/flacs"
+alias convert="python /Users/christopher/code/scripts/convert.py /Users/christopher/Music/Downloads/flacs"
 
 # Environment Variables
 export HOMEBREW_NO_ENV_HINTS=TRUE
@@ -82,6 +82,17 @@ else
  export STARSHIP_CONFIG=~/.config/starship-light.toml
 fi
 eval "$(starship init zsh)"
+
+# bat wrapper to switch themes based on macOS appearance
+bat() {
+  if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+    command bat --theme="Catppuccin Mocha" "$@"
+  else
+    command bat --theme="Catppuccin Latte" "$@"
+  fi
+}
+alias cat="bat"
+
 
 # Fuzzy Finder
 source <(fzf --zsh)
