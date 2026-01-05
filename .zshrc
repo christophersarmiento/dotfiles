@@ -5,11 +5,11 @@
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
+# Set editor default keymap to vi (`-v`)
+bindkey -v
 
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
+# Sensible WORDCHARS
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 # -----------------
 # Zim configuration
@@ -69,11 +69,12 @@ unset key
 alias vim="nvim"
 alias cd="z"
 alias ls="eza --icons=always -G"
-alias lsl="eza --icons=always -h -l --git --git-repos"
+alias ll="eza --icons=always -l -a -h --smart-group --git --git-repos-no-status"
 alias convert="python /Users/christopher/code/scripts/convert.py /Users/christopher/Music/Downloads/flacs"
 
 # Environment Variables
 export HOMEBREW_NO_ENV_HINTS=TRUE
+export VISUAL="zed -w"
 
 # Starship Prompt
 if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
@@ -93,27 +94,14 @@ bat() {
 }
 alias cat="bat"
 
-
 # Fuzzy Finder
 source <(fzf --zsh)
 
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Pyenv
-export PYRENV_ROOT="$HOME/.pyenv"
-[[ -d $PYRENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Rust binaries
-export PATH="/Users/christopher/.cargo/bin:$PATH"
-# Created by `pipx` on 2025-08-21 16:25:10
-export PATH="$PATH:/Users/christopher/.local/bin"
-
-export VISUAL="zed -w"
-export PATH="$HOME/.cargo/bin:$PATH"
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
