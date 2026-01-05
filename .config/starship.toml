@@ -2,7 +2,7 @@
 
 palette = "catppuccin_mocha"
 
-format = '$all$kubernetes'
+format = '$all$kubernetes$line_break$jobs$battery$time$status$os$container$netns$shell$character'
 
 [character]
 success_symbol = "[❯](green)"
