@@ -1,37 +1,30 @@
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.signcolumn = "yes"
-vim.o.termguicolors = true
-vim.o.wrap = false
-vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.swapfile = false
-vim.o.winborder = "rounded"
+require("options")
+require("keybinds")
+require("lsp")
 
-vim.g.mapleader = " "
-
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
-vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
-vim.keymap.set('n', '<leader>w', ':w<CR>')
-vim.keymap.set('n', '<leader>q', ':q<CR>')
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-
+-- Plugins
 vim.pack.add({
-  {src = "https://github.com/catppuccin/nvim"},
-  {src = 'https://github.com/neovim/nvim-lspconfig'},
+  { src = "https://github.com/catppuccin/nvim" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
-local function get_system_appearance()
-  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
-  local result = handle:read("*a")
-  handle:close()
-  return result:match("Dark") and "dark" or "light"
-end
+-- Treesitter
+require("nvim-treesitter").install({
+  "rust",
+  "javascript",
+  "lua",
+  "go",
+  "python",
+  "typescript"
+})
 
-if get_system_appearance() == "dark" then
-  vim.cmd('colorscheme catppuccin-mocha')
-else
-  vim.cmd('colorscheme catppuccin-latte')
-end
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "rust", "javascript", "lua", "go", "python", "typescript" },
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = 'v:lua.require"nvim-treesitter".indentexpr()'
+  end,
+})
+
+vim.cmd.colorscheme "catppuccin"
