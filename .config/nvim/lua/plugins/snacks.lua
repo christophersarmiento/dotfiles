@@ -137,8 +137,7 @@ return {
       { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
       { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
       -- Other
-      { "<leader>d",  function() Snacks.dashboard() end, desc = "Open Dashboard" },
-      { "<leader>tt",  function() Snacks.statuscolumn() end, desc = "test" },
+      { "<leader>h",  function() Snacks.dashboard() end, desc = "Open Dashboard" },
       { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
       { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },

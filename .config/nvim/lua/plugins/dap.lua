@@ -15,20 +15,32 @@ return {
       require("dapui").setup()
       require("dap-go").setup()
 
-      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-      vim.keymap.set("n", "<space>rb", dap.run_to_cursor)
+      vim.keymap.set("n", "<space>b", dap.toggle_breakpoint, { desc = "DAP: Toggle Breakpoint" })
+      vim.keymap.set("n", "<space>rb", dap.run_to_cursor, { desc = "DAP: Run to Cursor" })
+
+      local signs = {
+          DapBreakpoint = { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" },
+          DapBreakpointCondition = { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" },
+          DapLogPoint = { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" },
+          DapStopped = { text = "󰁕 ", texthl = "DapStopped", linehl = "DebugStoppedLine", numhl = "DebugStoppedLine" },
+          DapBreakpointRejected = { text = " ", texthl = "DapBreakpointRejected", linehl = "", numhl = "" },
+        }
+
+        for name, sign in pairs(signs) do
+          vim.fn.sign_define(name, sign)
+        end
 
       -- Eval var under cursor
       vim.keymap.set("n", "<space>D", function()
         require("dapui").eval(nil, { enter = true })
-      end)
+      end, { desc = "DAP UI"})
 
-      vim.keymap.set("n", "<F1>", dap.continue)
-      vim.keymap.set("n", "<F2>", dap.step_into)
-      vim.keymap.set("n", "<F3>", dap.step_over)
-      vim.keymap.set("n", "<F4>", dap.step_out)
-      vim.keymap.set("n", "<F5>", dap.step_back)
-      vim.keymap.set("n", "<F13>", dap.restart)
+      vim.keymap.set("n", "<F1>", dap.continue, { desc = "DAP: Continue" })
+      vim.keymap.set("n", "<F2>", dap.step_into, { desc = "DAP: Step Into" })
+      vim.keymap.set("n", "<F3>", dap.step_over, { desc = "DAP: Step Over" })
+      vim.keymap.set("n", "<F4>", dap.step_out, { desc = "DAP: Step Out" })
+      vim.keymap.set("n", "<F5>", dap.step_back, { desc = "DAP: Step Back" })
+      vim.keymap.set("n", "<F13>", dap.restart, { desc = "DAP: Restart" })
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
