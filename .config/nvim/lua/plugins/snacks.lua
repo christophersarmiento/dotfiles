@@ -30,8 +30,8 @@ return {
           },
           sections = {
             { section = "header" },
-            { section = "keys", gap = 1 },
-            { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = { 2, 2 } },
+            { section = "keys", gap = 1, padding = 2 },
+            { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
             { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
             { section = "startup" },
           },
@@ -41,6 +41,21 @@ return {
         },
         gitbrowse = {
           enabled = true,
+        },
+        lazygit = {
+          enabled = true,
+          theme = {
+            [241]                      = { fg = "Special" },
+            activeBorderColor          = { fg = "MatchParen", bold = true },
+            cherryPickedCommitBgColor  = { fg = "Identifier" },
+            cherryPickedCommitFgColor  = { fg = "Function" },
+            defaultFgColor             = { fg = "Normal" },
+            inactiveBorderColor        = { fg = "FloatBorder" },
+            optionsTextColor           = { fg = "Function" },
+            searchingActiveBorderColor = { fg = "MatchParen", bold = true },
+            selectedLineBgColor        = { bg = "Visual" }, -- set to `default` to have no background colour
+            unstagedChangesColor       = { fg = "DiagnosticError" },
+          },
         },
         indent = { enabled = true },
         input = { enabled = true },
