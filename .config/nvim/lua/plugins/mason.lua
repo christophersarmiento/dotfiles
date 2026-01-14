@@ -54,6 +54,15 @@ return {
             },
           },
         },
+        basedpyright = {
+          settings = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodForTypes = true,
+              diagnosticMode = "openFilesOnly",
+            },
+          },
+        },
         -- Add more servers here
         -- rust_analyzer = {},
         -- gopls = {},
