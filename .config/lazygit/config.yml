@@ -1,0 +1,54 @@
+git:
+  pagers:
+    - pager: delta --paging=never --dark --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      colorArg: "always"
+  parseEmoji: true
+
+gui:
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  theme:
+  # Mocha
+    activeBorderColor:
+      - '#fab387'
+      - bold
+    inactiveBorderColor:
+      - '#a6adc8'
+    optionsTextColor:
+      - '#89b4fa'
+    selectedLineBgColor:
+      - '#313244'
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#fab387'
+    unstagedChangesColor:
+      - '#f38ba8'
+    defaultFgColor:
+      - '#cdd6f4'
+    searchingActiveBorderColor:
+      - '#f9e2af'
+  authorColors:
+    '*': '#b4befe'
+  # Latte
+  #   activeBorderColor:
+  #     - '#fe640b'
+  #     - bold
+  #   inactiveBorderColor:
+  #     - '#6c6f85'
+  #   optionsTextColor:
+  #     - '#1e66f5'
+  #   selectedLineBgColor:
+  #     - '#ccd0da'
+  #   cherryPickedCommitBgColor:
+  #     - '#bcc0cc'
+  #   cherryPickedCommitFgColor:
+  #     - '#fe640b'
+  #   unstagedChangesColor:
+  #     - '#d20f39'
+  #   defaultFgColor:
+  #     - '#4c4f69'
+  #   searchingActiveBorderColor:
+  #     - '#df8e1d'
+  # authorColors:
+  #   '*': '#7287fd'

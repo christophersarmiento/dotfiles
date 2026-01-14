@@ -71,6 +71,7 @@ alias cd="z"
 alias ls="eza --icons=always -G"
 alias ll="eza --icons=always -l -a -h --smart-group --git --git-repos-no-status"
 alias convert="python /Users/christopher/code/scripts/convert.py /Users/christopher/Music/Downloads/flacs"
+alias cat="bat"
 
 # Environment Variables
 export HOMEBREW_NO_ENV_HINTS=TRUE
@@ -84,15 +85,7 @@ else
 fi
 eval "$(starship init zsh)"
 
-# bat wrapper to switch themes based on macOS appearance
-bat() {
-  if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
-    command bat --theme="Catppuccin Mocha" "$@"
-  else
-    command bat --theme="Catppuccin Latte" "$@"
-  fi
-}
-alias cat="bat"
+
 
 # Fuzzy Finder
 source <(fzf --zsh)
@@ -105,3 +98,11 @@ FNM_PATH="/opt/homebrew/opt/fnm/bin"
 if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
+
+# pnpm
+export PNPM_HOME="/Users/christopher/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
