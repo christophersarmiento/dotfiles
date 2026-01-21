@@ -56,21 +56,36 @@ return {
         },
         basedpyright = {
           settings = {
-            analysis = {
-              autoSearchPaths = true,
-              useLibraryCodForTypes = true,
-              diagnosticMode = "openFilesOnly",
+            basedpyright = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+                typeCheckingMode = "basic",
+                diagnosticSeverityOverrides = {
+                  -- Silence the "partially unknown" warnings seen in your screenshot
+                  reportUnknownMemberType = "none",
+                  reportUnknownVariableType = "none",
+                  reportUnknownArgumentType = "none",
+                  reportUnknownParameterType = "none",
+                  reportAny = "none",
+                },
+                inlayHints = {
+                  variableTypes = false,
+                  callArgumentNames = false,
+                  functionReturnTypes = false,
+                  genericTypes = false,
+                },
+              },
             },
           },
         },
-        -- Add more servers here
-        -- rust_analyzer = {},
-        -- gopls = {},
       },
     },
     config = function(_, opts)
       -- Setup diagnostics
       vim.diagnostic.config(opts.diagnostics)
+      vim.diagnostic.enable(false)
 
       -- Setup keymaps on LspAttach
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -112,13 +127,17 @@ return {
           -- Inlay hints toggle
           if client and client:supports_method("textDocument/inlayHint") then
             map("n", "<leader>ch", function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
-            end, "Toggle Inlay Hints")
+              local is_enabled = not vim.lsp.inlay_hint.is_enabled({ bufnr = buf })
+              vim.lsp.inlay_hint.enable(is_enabled, { bufnr = buf })
 
-            -- Enable inlay hints by default
-            if opts.inlay_hints.enabled and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buf].filetype) then
-              vim.lsp.inlay_hint.enable(true, { bufnr = buf })
-            end
+              local msg = is_enabled and "Inlay Hints Disabled" or "Inlay Hints Enabled"
+              local icon = is_enabled and " " or " "
+
+              Snacks.notifier.notify(msg, "info", {
+                title = "LSP",
+                icon = icon
+              })
+            end, "Toggle Inlay Hints")
           end
         end,
       })
@@ -161,7 +180,7 @@ return {
     opts = {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "snacks.nvim",        words = { "Snacks" } },
       },
     },
   }

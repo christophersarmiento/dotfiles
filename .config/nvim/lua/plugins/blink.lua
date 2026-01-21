@@ -46,7 +46,8 @@ return {
                       if mini_icon then return mini_icon .. ctx.icon_gap end
                   end
 
-                  local icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+                  local lspkind_ok, lspkind = pcall(require, "lspkind")
+                  local icon = lspkind_ok and lspkind.symbolic and lspkind.symbolic(ctx.kind, { mode = "symbol" }) or ""
                   return icon .. ctx.icon_gap
                 end,
 
