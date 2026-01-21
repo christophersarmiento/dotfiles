@@ -1,6 +1,6 @@
 git:
   pagers:
-    - pager: delta --paging=never --line-numbers --features=catppuccin-mocha --dark --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    - pager: delta --paging=never --line-numbers --features=catppuccin-latte --light --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
       colorArg: "always"
   parseEmoji: true
 
@@ -8,47 +8,47 @@ gui:
   nerdFontsVersion: "3"
   showFileIcons: true
   theme:
-  # Mocha
+    # Mocha
+  #     activeBorderColor:
+  #       - '#fab387'
+  #       - bold
+  #     inactiveBorderColor:
+  #       - '#a6adc8'
+  #     optionsTextColor:
+  #       - '#89b4fa'
+  #     selectedLineBgColor:
+  #       - '#313244'
+  #     cherryPickedCommitBgColor:
+  #       - '#45475a'
+  #     cherryPickedCommitFgColor:
+  #       - '#fab387'
+  #     unstagedChangesColor:
+  #       - '#f38ba8'
+  #     defaultFgColor:
+  #       - '#cdd6f4'
+  #     searchingActiveBorderColor:
+  #       - '#f9e2af'
+  # authorColors:
+  #   '*': '#b4befe'
+  #   Latte
     activeBorderColor:
-      - '#fab387'
+      - "#fe640b"
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - "#6c6f85"
     optionsTextColor:
-      - '#89b4fa'
+      - "#1e66f5"
     selectedLineBgColor:
-      - '#313244'
+      - "#ccd0da"
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - "#bcc0cc"
     cherryPickedCommitFgColor:
-      - '#fab387'
+      - "#fe640b"
     unstagedChangesColor:
-      - '#f38ba8'
+      - "#d20f39"
     defaultFgColor:
-      - '#cdd6f4'
+      - "#4c4f69"
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - "#df8e1d"
   authorColors:
-    '*': '#b4befe'
-  # Latte
-  #   activeBorderColor:
-  #     - '#fe640b'
-  #     - bold
-  #   inactiveBorderColor:
-  #     - '#6c6f85'
-  #   optionsTextColor:
-  #     - '#1e66f5'
-  #   selectedLineBgColor:
-  #     - '#ccd0da'
-  #   cherryPickedCommitBgColor:
-  #     - '#bcc0cc'
-  #   cherryPickedCommitFgColor:
-  #     - '#fe640b'
-  #   unstagedChangesColor:
-  #     - '#d20f39'
-  #   defaultFgColor:
-  #     - '#4c4f69'
-  #   searchingActiveBorderColor:
-  #     - '#df8e1d'
-  # authorColors:
-  #   '*': '#7287fd'
+    "*": "#7287fd"
