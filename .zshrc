@@ -67,6 +67,7 @@ unset key
 
 # Aliases
 alias vim="nvim"
+alias zj="zellij"
 alias cd="z"
 alias ls="eza --icons=always -G"
 alias ll="eza --icons=always -l -a -h --smart-group --git --git-repos-no-status"
