@@ -1,4 +1,5 @@
 return {
+  { "tpope/vim-sleuth", },
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
@@ -54,29 +55,17 @@ return {
             },
           },
         },
-        basedpyright = {
+        ruff = {
+          init_options = {
+            settings = {
+              configurationPreference = "filesystemFirst"
+            },
+          },
+        },
+        ty = {
           settings = {
-            basedpyright = {
-              analysis = {
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "basic",
-                diagnosticSeverityOverrides = {
-                  -- Silence the "partially unknown" warnings seen in your screenshot
-                  reportUnknownMemberType = "none",
-                  reportUnknownVariableType = "none",
-                  reportUnknownArgumentType = "none",
-                  reportUnknownParameterType = "none",
-                  reportAny = "none",
-                },
-                inlayHints = {
-                  variableTypes = false,
-                  callArgumentNames = false,
-                  functionReturnTypes = false,
-                  genericTypes = false,
-                },
-              },
+            ty = {
+              -- ty language server settings go here
             },
           },
         },
