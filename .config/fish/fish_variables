@@ -3,4 +3,4 @@
 SETUVAR __fish_initialized:4300
 SETUVAR fish_color_command:green
 SETUVAR fish_greeting:
-SETUVAR fish_user_paths:/Users/christopher/\x2elocal/bin\x1e/opt/homebrew/sbin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/christopher/\x2elocal/share/bob/nvim\x2dbin\x1e/Users/christopher/\x2elocal/bin\x1e/opt/homebrew/sbin\x1e/opt/homebrew/bin
