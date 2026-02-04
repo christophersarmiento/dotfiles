@@ -42,6 +42,17 @@ vim.o.clipboard = "unnamedplus"
 
 vim.g.python_recommended_style = 0
 
+local function is_dark_mode()
+  local env_theme = vim.env.SYSTEM_THEME
+  if env_theme then
+    return env_theme == "dark"
+  end
+  local result = vim.fn.system("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  return result:match("Dark") ~= nil
+end
+
+vim.o.background = is_dark_mode() and "dark" or "light"
+
 require("lazy").setup({
   spec = {
     { "catppuccin/nvim", config = function() vim.cmd.colorscheme "catppuccin" end },

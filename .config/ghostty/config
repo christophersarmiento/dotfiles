@@ -13,6 +13,7 @@ font-thicken = true
 font-thicken-strength = 1
 font-family = "MonaspiceNe NerdFond Mono"
 font-style-bold = false
+font-feature = "-calt, -liga, -dlig"
 
 # Colors
 theme = "light:Catppuccin Latte,dark : Catppuccin Mocha"
