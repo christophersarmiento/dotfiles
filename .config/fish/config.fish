@@ -7,7 +7,9 @@ alias convert="python /Users/christopher/code/scripts/convert.py /Users/christop
 alias cat="bat"
 
 # Source machine specific variables
-source ~/.config/fish/.profile.fish
+if test -f ~/.config/fish/.profile.fish
+    source ~/.config/fish/.profile.fish
+end
 
 # Fuzzy finder
 fzf --fish | source
