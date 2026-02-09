@@ -11,6 +11,8 @@ if test -f ~/.config/fish/.profile.fish
     source ~/.config/fish/.profile.fish
 end
 
+set -gx HELIX_RUNTIME ~code/helix/src/helix/runtime
+
 # Fuzzy finder
 fzf --fish | source
 

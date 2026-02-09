@@ -28,7 +28,7 @@ adjust-cursor-thickness = 1
 # Macos
 macos-titlebar-style = tabs
 macos-icon = custom-style
-macos-icon-frame = chrome
+macos-icon-frame = plastic
 macos-icon-ghost-color = #11BA22
 macos-icon-screen-color = #030003
 auto-update = check
@@ -42,3 +42,15 @@ window-save-state = always
 
 # Keybinds
 keybind = global:cmd+;=toggle_quick_terminal
+
+# Window splits
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+a>h=new_split:left
+keybind = ctrl+a>j=new_split:down
+keybind = ctrl+a>k=new_split:up
+keybind = ctrl+a>l=new_split:right
+keybind = ctrl+a>f=toggle_split_zoom

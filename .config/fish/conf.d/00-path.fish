@@ -11,6 +11,11 @@ if test -d $HOME/.local/bin
     fish_add_path $HOME/.local/bin
 end
 
+# cargo
+if test -d $HOME/.cargo/bin
+    fish_add_path $HOME/.cargo/bin
+end
+
 # Neovim Version Manager (Bob)
 if test -d $HOME/.local/share/bob/nvim-bin
     fish_add_path $HOME/.local/share/bob/nvim-bin
