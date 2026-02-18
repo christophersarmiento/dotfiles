@@ -40,6 +40,8 @@ window-width = 113
 window-padding-x = 5
 window-save-state = always
 
+bell-features = system
+
 # Keybinds
 keybind = global:cmd+;=toggle_quick_terminal
 
