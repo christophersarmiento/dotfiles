@@ -42,8 +42,8 @@ return {
                 ellipsis = false,
                 text = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, _ = require("mini.icons").get(ctx.item.data.type, ctx.label)
-                    if mini_icon then return mini_icon .. ctx.icon_gap end
+                    local ok, mini_icon, _ = pcall(require("mini.icons").get, ctx.item.data.type, ctx.label)
+                    if ok and mini_icon then return mini_icon .. ctx.icon_gap end
                   end
 
                   local lspkind_ok, lspkind = pcall(require, "lspkind")
@@ -53,8 +53,8 @@ return {
 
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get(ctx.item.data.type, ctx.label)
-                    if mini_icon then return mini_hl end
+                    local ok, mini_icon, mini_hl = pcall(require("mini.icons").get, ctx.item.data.type, ctx.label)
+                    if ok and mini_icon then return mini_hl end
                   end
                   return ctx.kind_hl
                 end,
@@ -63,8 +63,8 @@ return {
               kind = {
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
-                    if mini_icon then return mini_hl end
+                    local ok, mini_icon, mini_hl = pcall(require("mini.icons").get, ctx.item.data.type, ctx.label)
+                    if ok and mini_icon then return mini_hl end
                   end
                   return ctx.kind_hl
                 end,
