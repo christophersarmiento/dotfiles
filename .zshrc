@@ -71,7 +71,6 @@ alias zj="zellij"
 alias cd="z"
 alias ls="eza --icons=always -G"
 alias ll="eza --icons=always -l -a -h --smart-group --git --git-repos-no-status"
-alias convert="python /Users/christopher/code/scripts/convert.py /Users/christopher/Music/Downloads/flacs"
 alias cat="bat"
 
 # Environment Variables

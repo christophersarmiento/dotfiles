@@ -16,6 +16,9 @@ fzf --fish | source
 # Zoxide
 zoxide init fish | source
 
+# fnm
+fnm env --use-on-cd --shell fish | source
+
 # starship.rs prompt
 theme
 starship init fish | source
