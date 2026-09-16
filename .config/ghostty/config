@@ -1,7 +1,10 @@
 # Shell
 shell-integration = detect
-shell-integration-features = "no-cursor, title"
+shell-integration-features = "no-cursor, title, ssh-env, ssh-terminfo"
 command = /opt/homebrew/bin/fish
+
+# main builds
+auto-update-channel = tip
 
 # Clipboard
 clipboard-read = allow
