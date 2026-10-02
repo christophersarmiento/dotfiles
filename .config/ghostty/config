@@ -14,7 +14,8 @@ clipboard-write = allow
 font-size = 16
 font-thicken = true
 font-thicken-strength = 1
-font-family = "MonaspiceNe NerdFond Mono"
+#font-family = "MonaspiceNe Nerd Font Mono"
+font-family = "JetBrainsMono Nerd Font"
 font-style-bold = false
 font-feature = "-calt, -liga, -dlig"
 
