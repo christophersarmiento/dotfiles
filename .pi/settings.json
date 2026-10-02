@@ -1,0 +1,33 @@
+{
+  "lastChangelogVersion": "1.0.0",
+  "defaultProvider": "anthropic-omp",
+  "defaultModel": "claude-opus-5-5",
+  "defaultThinkingLevel": "low",
+  "theme": "catppuccin-latte/catppuccin-mocha",
+  "hideThinkingBlock": true,
+  "packages": [
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-markdown-preview",
+    "npm:pi-intercom",
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-goal-x",
+    "npm:@juicesharp/rpiv-btw"
+  ],
+  "enabledModels": [
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6-luna",
+    "openrouter/deepseek/deepseek-v4.1-flash",
+    "anthropic-omp/claude-opus-5-5",
+    "anthropic-omp/claude-fable-5-1",
+    "openai-codex/gpt-6.1-sol"
+  ],
+  "modelThinkingLevels": {
+    "openai-codex/gpt-6-astra": "low",
+    "openai-codex/gpt-6.1-sol": "medium",
+    "openai-codex/gpt-6-luna": "max",
+    "anthropic-omp/claude-opus-5-5": "medium",
+    "anthropic-omp/claude-fable-5-1": "low"
+  }
+}

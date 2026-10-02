@@ -1,0 +1,16 @@
+agent/auth.json
+agent/mcp-auth.json
+agent/models-store.json
+agent/mcp-cache.json
+agent/mcp-npx-cache.json
+agent/mcp-onboarding.json
+agent/trust.json
+agent/*.bak
+agent/sessions/
+agent/intercom/
+agent/cache/
+agent/generated_images/
+agent/web-search-cache/
+agent/weekly-costs/
+agent/npm/
+web-search-cache/
